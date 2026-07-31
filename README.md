@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# LoanChain Web
 
-## Getting Started
+Página web informativa oficial de **LoanChain** — ahorro colectivo transparente para tu comunidad. Sitio estático construido con Next.js (App Router), TypeScript y Tailwind CSS, listo para desplegar en Vercel.
 
-First, run the development server:
+## 🚀 Comandos
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install        # instalar dependencias
+npm run dev        # entorno de desarrollo → http://localhost:3000
+npm run build      # build de producción
+npm run lint       # ESLint
+npm start          # servir el build de producción
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🗂️ Estructura
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+src/
+├── app/
+│   ├── layout.tsx           # Layout raíz: metadata SEO, Navbar, Footer
+│   ├── page.tsx             # Página principal + datos estructurados (JSON-LD)
+│   ├── globals.css          # Sistema de diseño: tema oscuro fintech, utilidades
+│   ├── icon.svg             # Favicon (marca de cadena)
+│   ├── opengraph-image.tsx  # Imagen Open Graph generada automáticamente
+│   ├── robots.ts            # robots.txt
+│   └── sitemap.ts           # sitemap.xml
+├── components/
+│   ├── sections/            # Hero, HowItWorks, Features, Community, FAQ, Contact
+│   ├── Navbar.tsx           # Barra de navegación fija con menú móvil
+│   ├── Footer.tsx
+│   ├── Logo.tsx             # Marca LoanChain (SVG)
+│   ├── Icon.tsx             # Set de íconos stroke
+│   ├── PhoneMockup.tsx      # Mockup CSS de la app móvil
+│   └── Reveal.tsx           # Animación de aparición al hacer scroll
+└── lib/
+    ├── site.ts              # Configuración central del sitio (URL, correo, TRINODE)
+    └── content.ts           # Contenido editorial (secciones, FAQ, características)
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📝 Contenido y fuentes
 
-## Learn More
+Todo el contenido editorial proviene de los documentos oficiales del proyecto:
 
-To learn more about Next.js, take a look at the following resources:
+- `LoanChain_App_Specification_Requirements_System_Docs.docx` (SRS)
+- `Propuesta_Comercial_TRINODE_LoanChain_App.docx`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+La información reflejada (cadenas de ahorro, microcréditos, cifrado AES-256,
+modo Offline-First, notificaciones 24 h, estados de mora) corresponde a lo
+documentado en esos archivos. La página incluye un aviso de que la aplicación
+se encuentra en fase de desarrollo.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🔧 Configuración antes de publicar
 
-## Deploy on Vercel
+Edita `src/lib/site.ts`:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Campo | Uso |
+|---|---|
+| `url` | Dominio final del sitio (SEO, sitemap, Open Graph) |
+| `email` | Correo destino del formulario de contacto |
+| `trinode` | Datos de la empresa desarrolladora |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## ☁️ Despliegue en Vercel
+
+1. Sube este repositorio a GitHub.
+2. En [vercel.com](https://vercel.com) → *Add New Project* → importa el repo.
+3. Framework preset: **Next.js** (auto detectado). No requiere variables de entorno.
+4. Cada `push` a la rama principal genera un despliegue automático.
+
+## ✨ Stack
+
+- [Next.js 16](https://nextjs.org) (App Router, Server Components)
+- React 19 · TypeScript · ESLint
+- Tailwind CSS v4 (tema oscuro fintech: esmeralda + dorado)
+- SEO: metadata, Open Graph, JSON-LD (FAQPage, Organization, WebSite), sitemap
