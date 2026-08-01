@@ -33,10 +33,10 @@ export const navLinks = [
 ];
 
 export const heroStats = [
-  { value: "12", label: "requerimientos funcionales" },
-  { value: "4", label: "módulos de producto" },
-  { value: "24 h", label: "aviso previo de vencimiento" },
-  { value: "AES-256", label: "cifrado en reposo" },
+  { value: "+24 h", label: "aviso antes de cada vencimiento" },
+  { value: "AES-256", label: "cifrado de grado bancario" },
+  { value: "Offline", label: "funciona sin internet" },
+  { value: "0", label: "errores de cálculo manual" },
 ];
 
 export const steps: Step[] = [
@@ -73,59 +73,45 @@ export const steps: Step[] = [
 export const features: Feature[] = [
   {
     icon: "shield",
-    tag: "RF-03",
-    title: "Cifrado AES-256 en reposo",
+    tag: "Privacidad",
+    title: "Tu identidad está protegida",
     description:
-      "El documento de identidad y la fecha de expedición se cifran con AES-256 antes de insertarse en PostgreSQL. El acceso directo a las tablas no expone datos sensibles.",
+      "Tus datos personales se cifran con la misma tecnología que usan los bancos. Nadie —ni siquiera nosotros— puede ver tu información sin autorización.",
   },
   {
     icon: "key",
-    tag: "RF-01",
-    title: "Inicio de sesión unificado",
+    tag: "Acceso rápido",
+    title: "Entra como prefieras",
     description:
-      "Ingresa con correo y contraseña o con tu cuenta de Google y Apple (SSO), sin memorizar contraseñas nuevas.",
-  },
-  {
-    icon: "lock",
-    tag: "RF-04",
-    title: "Contraseñas con bcrypt",
-    description:
-      "Las credenciales se procesan con el algoritmo irreversible bcrypt antes de almacenarse. Nunca se guardan en texto plano.",
+      "Usa tu cuenta de Google o Apple. Sin contraseñas nuevas que memorizar. Un toque y estás dentro.",
   },
   {
     icon: "wifi-off",
-    tag: "RF-12",
-    title: "Modo Offline-First",
+    tag: "Sin internet",
+    title: "Funciona sin señal",
     description:
-      "Los calendarios de pago y los estados de deuda se guardan en una base local embebida (Hive/Isar): consulta saldos sin conexión a internet.",
+      "Consulta saldos, turnos y estados aunque no tengas conexión. Todo se guarda en tu teléfono.",
   },
   {
     icon: "bell",
-    tag: "RF-11",
-    title: "Notificaciones 24 h antes",
+    tag: "Recordatorios",
+    title: "Nunca olvides un aporte",
     description:
-      "Alertas push automáticas antes del vencimiento de cada aporte de la cadena o cuota de crédito.",
+      "Te avisamos 24 horas antes de cada vencimiento. Un recordatorio, no una sorpresa.",
   },
   {
     icon: "audit",
-    tag: "RF-10",
-    title: "Auditoría inmutable",
+    tag: "Transparencia",
+    title: "Cada peso, registrado",
     description:
-      "Todo movimiento financiero queda registrado en un historial transaccional ACID. Ningún saldo cambia sin su registro asociado.",
+      "Cada movimiento queda en un historial que nadie puede alterar. Transparencia total para todo el grupo.",
   },
   {
     icon: "calendar",
-    tag: "RF-06",
-    title: "Turnos automatizados",
+    tag: "Automático",
+    title: "Calendario sin confusiones",
     description:
-      "Calendario de adjudicación con fechas exactas: distribución secuencial o aleatoria, según la configuración del grupo.",
-  },
-  {
-    icon: "mora",
-    tag: "RF-07",
-    title: "Control de mora",
-    description:
-      "Estados de aporte y deuda siempre visibles (Pagado, Pendiente, En Mora) para evitar deudas descontroladas y errores de cálculo.",
+      "Elige secuencial o aleatorio y la app genera las fechas exactas de cada turno. Sin cálculos manuales, sin errores.",
   },
 ];
 

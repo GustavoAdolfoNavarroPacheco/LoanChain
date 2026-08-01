@@ -12,7 +12,7 @@ export default function FAQ() {
     <section id="faq" className="relative scroll-mt-24 py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
-          <Reveal>
+          <Reveal variant="up" duration={900}>
             <div className="lg:sticky lg:top-28">
               <span className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400">
                 Preguntas frecuentes
@@ -24,7 +24,7 @@ export default function FAQ() {
                 Todo lo que necesitas saber sobre las cadenas de ahorro, la
                 seguridad de tus datos y el estado de la aplicación.
               </p>
-              <div className="mt-8 inline-flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-4">
+              <div className="mt-8 inline-flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-4 transition-all duration-500 hover:border-white/20">
                 <span className="flex size-10 items-center justify-center rounded-full bg-amber-400/15 text-amber-300">
                   <Icon name="bell" className="size-5" />
                 </span>
@@ -42,12 +42,12 @@ export default function FAQ() {
             {faqItems.map((item, i) => {
               const isOpen = open === i;
               return (
-                <Reveal key={item.question} delay={i * 40}>
+                <Reveal key={item.question} delay={i * 50} variant="up" duration={700}>
                   <div
-                    className={`overflow-hidden rounded-2xl border transition-colors duration-300 ${
+                    className={`overflow-hidden rounded-2xl border transition-all duration-500 ${
                       isOpen
-                        ? "border-emerald-400/25 bg-white/[0.05]"
-                        : "border-white/10 bg-white/[0.03] hover:border-white/20"
+                        ? "border-emerald-400/25 bg-white/[0.05] shadow-lg shadow-emerald-500/5"
+                        : "border-white/10 bg-white/[0.03] hover:border-white/20 hover:bg-white/[0.04]"
                     }`}
                   >
                     <button
@@ -61,9 +61,9 @@ export default function FAQ() {
                         {item.question}
                       </span>
                       <span
-                        className={`flex size-8 shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${
+                        className={`flex size-8 shrink-0 items-center justify-center rounded-full border transition-all duration-500 ease-(--spring) ${
                           isOpen
-                            ? "rotate-180 border-emerald-400/30 bg-emerald-400/10 text-emerald-300"
+                            ? "rotate-180 border-emerald-400/30 bg-emerald-400/10 text-emerald-300 scale-110"
                             : "border-white/10 bg-white/5 text-zinc-400"
                         }`}
                       >
@@ -75,9 +75,11 @@ export default function FAQ() {
                     <div
                       id={`faq-panel-${i}`}
                       role="region"
-                      className={`grid transition-all duration-300 ease-out ${
-                        isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
-                      }`}
+                      style={{
+                        maxHeight: isOpen ? "420px" : "0px",
+                        opacity: isOpen ? 1 : 0,
+                        transition: "max-height 0.5s var(--spring-soft), opacity 0.4s var(--spring-soft)",
+                      }}
                     >
                       <div className="overflow-hidden">
                         <p className="px-6 pb-6 text-sm leading-relaxed text-zinc-400">

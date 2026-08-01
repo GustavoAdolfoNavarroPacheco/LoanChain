@@ -11,7 +11,12 @@ export default function PhoneMockup() {
       role="img"
       aria-label="Vista previa de la aplicación móvil LoanChain: fondo acumulado de la cadena, calendario de turnos con estados de pago y tarjeta de microcrédito."
     >
-      <div className="shine-wrap relative w-[290px] rounded-[2.75rem] border border-white/15 bg-[#0a1013] p-2.5 shadow-2xl shadow-emerald-500/10">
+      <div
+        className="shine-wrap relative w-[290px] rounded-[2.75rem] border border-white/15 bg-[#0a1013] p-2.5 shadow-2xl shadow-emerald-500/10"
+        style={{
+          animation: "float 8s var(--ease-out-expo) infinite",
+        }}
+      >
         <div className="relative overflow-hidden rounded-[2.25rem] border border-white/5 bg-[#0d1518]">
           {/* Status bar */}
           <div className="flex items-center justify-between px-6 pt-4 text-[11px] font-medium text-zinc-400">
@@ -55,10 +60,14 @@ export default function PhoneMockup() {
             <p className="px-1 text-[11px] font-semibold uppercase tracking-wider text-zinc-500">
               Calendario de turnos
             </p>
-            {contributions.map((c) => (
+            {contributions.map((c, i) => (
               <div
                 key={c.week}
-                className="flex items-center justify-between rounded-xl border border-white/5 bg-white/[0.03] px-3.5 py-2.5"
+                className="flex items-center justify-between rounded-xl border border-white/5 bg-white/[0.03] px-3.5 py-2.5 transition-all duration-300 hover:bg-white/[0.06]"
+                style={{
+                  opacity: 0,
+                  animation: `slide-up-fade 0.5s var(--spring-soft) ${800 + i * 120}ms forwards`,
+                }}
               >
                 <div>
                   <p className="text-[13px] font-medium text-zinc-100">{c.week}</p>
@@ -72,13 +81,25 @@ export default function PhoneMockup() {
           </div>
 
           {/* Microcredit card */}
-          <div className="mx-5 mt-4 rounded-2xl border border-amber-400/20 bg-amber-400/[0.06] p-4">
+          <div
+            className="mx-5 mt-4 rounded-2xl border border-amber-400/20 bg-amber-400/[0.06] p-4"
+            style={{
+              opacity: 0,
+              animation: "slide-up-fade 0.5s var(--spring-soft) 1200ms forwards",
+            }}
+          >
             <div className="flex items-center justify-between">
               <p className="text-[13px] font-semibold text-amber-200">Microcrédito · Moto</p>
               <p className="text-[11px] font-medium text-amber-300/80">60% pagado</p>
             </div>
             <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-white/10">
-              <div className="h-full w-[60%] rounded-full bg-linear-to-r from-amber-400 to-amber-300" />
+              <div
+                className="h-full rounded-full bg-linear-to-r from-amber-400 to-amber-300"
+                style={{
+                  width: "0%",
+                  animation: "grow-bar 1.4s var(--spring-soft) 1000ms forwards",
+                }}
+              />
             </div>
             <p className="mt-2.5 text-[11px] text-zinc-400">Cuota 9 · Vence en 5 días</p>
           </div>
@@ -102,7 +123,12 @@ export default function PhoneMockup() {
       </div>
 
       {/* Floating chips */}
-      <div className="animate-float absolute -left-20 top-16 hidden rounded-2xl border border-white/10 bg-white/5 px-4 py-3 backdrop-blur-md lg:block">
+      <div
+        className="absolute -left-20 top-16 hidden rounded-2xl border border-white/10 bg-white/5 px-4 py-3 backdrop-blur-md lg:block"
+        style={{
+          animation: "float 8s var(--ease-out-expo) infinite",
+        }}
+      >
         <div className="flex items-center gap-2.5">
           <span className="flex size-8 items-center justify-center rounded-full bg-emerald-400/15 text-emerald-300">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" className="size-4">
@@ -117,7 +143,12 @@ export default function PhoneMockup() {
         </div>
       </div>
 
-      <div className="animate-float-delayed absolute -right-24 bottom-24 hidden rounded-2xl border border-white/10 bg-white/5 px-4 py-3 backdrop-blur-md lg:block">
+      <div
+        className="absolute -right-24 bottom-24 hidden rounded-2xl border border-white/10 bg-white/5 px-4 py-3 backdrop-blur-md lg:block"
+        style={{
+          animation: "float-delayed 10s var(--ease-out-expo) infinite",
+        }}
+      >
         <div className="flex items-center gap-2.5">
           <span className="flex size-8 items-center justify-center rounded-full bg-amber-400/15 text-amber-300">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" className="size-4">

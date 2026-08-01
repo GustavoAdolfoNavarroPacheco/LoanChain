@@ -2,6 +2,7 @@ import Hero from "@/components/sections/Hero";
 import HowItWorks from "@/components/sections/HowItWorks";
 import Features from "@/components/sections/Features";
 import Community from "@/components/sections/Community";
+import SocialProof from "@/components/sections/SocialProof";
 import FAQ from "@/components/sections/FAQ";
 import Contact from "@/components/sections/Contact";
 import { faqItems } from "@/lib/content";
@@ -64,6 +65,7 @@ export default function Home() {
         <HowItWorks />
         <Features />
         <Community />
+        <SocialProof />
         <FAQ />
         <Contact />
       </main>

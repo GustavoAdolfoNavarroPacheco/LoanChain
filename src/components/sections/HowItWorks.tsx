@@ -5,7 +5,7 @@ export default function HowItWorks() {
   return (
     <section id="como-funciona" className="relative scroll-mt-24 py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6">
-        <Reveal className="mx-auto max-w-2xl text-center">
+        <Reveal className="mx-auto max-w-2xl text-center" variant="up" duration={900}>
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400">
             Cómo funciona
           </span>
@@ -21,14 +21,19 @@ export default function HowItWorks() {
         </Reveal>
 
         <div className="relative mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {/* Connector line */}
           <div
             aria-hidden="true"
             className="absolute left-0 right-0 top-[52px] hidden h-px bg-linear-to-r from-transparent via-emerald-400/30 to-transparent lg:block"
+            style={{
+              opacity: 0,
+              animation: "count-up 0.8s var(--spring-soft) 300ms forwards",
+            }}
           />
           {steps.map((step, i) => (
-            <Reveal key={step.step} delay={i * 100}>
-              <div className="group relative h-full rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-emerald-400/30 hover:bg-white/[0.05]">
-                <div className="relative z-10 flex size-[52px] items-center justify-center rounded-2xl bg-linear-to-br from-emerald-400 to-teal-600 font-mono text-sm font-bold text-emerald-950 shadow-lg shadow-emerald-500/20">
+            <Reveal key={step.step} delay={i * 120} variant="up" duration={800}>
+              <div className="group relative h-full rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-all duration-500 ease-(--spring) hover:-translate-y-2 hover:border-emerald-400/30 hover:bg-white/[0.06] hover:shadow-xl hover:shadow-emerald-500/5">
+                <div className="relative z-10 flex size-[52px] items-center justify-center rounded-2xl bg-linear-to-br from-emerald-400 to-teal-600 font-mono text-sm font-bold text-emerald-950 shadow-lg shadow-emerald-500/20 transition-all duration-500 ease-(--spring) group-hover:scale-110 group-hover:shadow-emerald-500/30">
                   {step.step}
                 </div>
                 <h3 className="mt-6 text-lg font-semibold text-white">{step.title}</h3>

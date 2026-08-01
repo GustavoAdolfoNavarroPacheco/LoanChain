@@ -6,11 +6,11 @@ export default function Features() {
   return (
     <section id="caracteristicas" className="relative scroll-mt-24 overflow-hidden py-24 lg:py-32">
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        <div className="orb -right-40 top-10 h-[420px] w-[420px] bg-emerald-500/10" />
+        <div className="orb -right-40 top-10 h-[420px] w-[420px] bg-emerald-500/10" style={{ animationDelay: "2s" }} />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-6">
-        <Reveal className="mx-auto max-w-2xl text-center">
+        <Reveal className="mx-auto max-w-2xl text-center" variant="up" duration={900}>
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400">
             Características técnicas
           </span>
@@ -25,13 +25,14 @@ export default function Features() {
           </p>
         </Reveal>
 
-        <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((feature: Feature, i) => (
-            <Reveal key={feature.title} delay={(i % 4) * 80}>
-              <div className="group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-emerald-400/30 hover:bg-white/[0.05]">
-                <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-emerald-400/50 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+            <Reveal key={feature.title} delay={(i % 3) * 100} variant="scale" duration={800}>
+              <div className="group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-all duration-500 ease-(--spring) hover:-translate-y-2 hover:border-emerald-400/30 hover:bg-white/[0.06] hover:shadow-xl hover:shadow-emerald-500/5">
+                {/* Top shine line */}
+                <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-emerald-400/50 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                 <div className="flex items-start justify-between">
-                  <span className="flex size-11 items-center justify-center rounded-xl border border-emerald-400/20 bg-emerald-400/10 text-emerald-300 transition-colors duration-300 group-hover:bg-emerald-400/20">
+                  <span className="flex size-11 items-center justify-center rounded-xl border border-emerald-400/20 bg-emerald-400/10 text-emerald-300 transition-all duration-500 ease-(--spring) group-hover:bg-emerald-400/20 group-hover:scale-110">
                     <Icon name={feature.icon} className="size-5" />
                   </span>
                   <span className="rounded-md border border-white/10 bg-white/5 px-2 py-1 font-mono text-[10px] font-medium text-zinc-500">
